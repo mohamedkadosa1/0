@@ -2,173 +2,35 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>شركات مجموعة الوادي</title>
-
+  <title>ملفات شركات الوادي</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      direction: rtl;
-      text-align: right;
-      margin: 0;
-      padding: 20px;
-      background: #f2f4f7;
-      transition: 0.3s;
-    }
-
-    h1 {
-      text-align: center;
-      color: #0a621b;
-      margin-bottom: 25px;
-      font-size: 28px;
-      transition: 0.3s;
-    }
-
-    /* زر الوضع الليلي */
-    .toggle-btn {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      background: #ddd;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .toggle-btn:hover {
-      background: #ccc;
-    }
-
-    /* شبكة الكروت */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 60px;
-    }
-
-    /* الكارد */
-    .card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: 0.3s;
-      cursor: pointer;
-      border: 1px solid #e0e0e0;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 16px rgba(0,0,0,0.18);
-    }
-
-    .card a {
-      text-decoration: none;
-      color: #0055aa;
-      font-size: 20px;
-      font-weight: bold;
-      display: block;
-      width: 100%;
-      height: 100%;
-      transition: 0.3s;
-    }
-
-    /* الوضع الليلي */
-    body.dark {
-      background: #1b1b1b;
-      color: #eeeeee;
-    }
-
-    body.dark h1 {
-      color: #9affb0;
-    }
-
-    body.dark .card {
-      background: #2a2a2a;
-      border-color: #444;
-      box-shadow: 0 3px 10px rgba(255,255,255,0.08);
-    }
-
-    body.dark .card a {
-      color: #70b7ff;
-    }
-
-    body.dark .toggle-btn {
-      background: #444;
-      color: #fff;
-    }
-
-    .toggle-btn.dark-mode-active {
-      background: #0a621b !important;
-      color: white !important;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 24px;
-      }
-      .card a {
-        font-size: 18px;
-      }
-    }
+    body { font-family: Arial, sans-serif; direction: rtl; text-align: right; margin: 30px; }
+    h1 { color: #007700; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 10px 0; }
+    a { text-decoration: none; color: #0055aa; font-size: 20px; }
+    a:hover { color: #ff6600; }
   </style>
-
 </head>
-
 <body>
 
-  <button class="toggle-btn" onclick="toggleDarkMode()" id="darkBtn">🌙 الوضع الليلي</button>
-
   <h1>شركات مجموعة الوادي</h1>
-
-  <div class="grid">
-
-    <div class="card"><a href="شركة دواجن الوادي/">شركة دواجن الوادي</a></div>
-    <div class="card"><a href="العصرية لإدارة المشروعات/">العصرية لإدارة المشروعات</a></div>
-    <div class="card"><a href="العصرية لتجارة البذور/">العصرية لتجارة البذور</a></div>
-    <div class="card"><a href="المني لاستزراع الصحراء/">المني لاستزراع الصحراء</a></div>
-    <div class="card"><a href="الوادي لإنتاج اعلاف الماشية/">الوادي لإنتاج اعلاف الماشية</a></div>
-    <div class="card"><a href="الوادي لتصنيع الاعلاف/">الوادي لتصنيع الاعلاف</a></div>
-    <div class="card"><a href="الوادي لصناعات التبريد/">الوادي لصناعات التبريد</a></div>
-    <div class="card"><a href="الوادي للصناعات الغذائية/">الوادي للصناعات الغذائية</a></div>
-    <div class="card"><a href="الوادي لتأصيل الدواجن/">الوادي لتأصيل الدواجن</a></div>
-    <div class="card"><a href="الوادي للصناعات الزراعية/">الوادي للصناعات الزراعية</a></div>
-    <div class="card"><a href="الوادي امات الدواجن/">الوادي امات الدواجن</a></div>
-    <div class="card"><a href="شركة رلى لاستصلاح الأراضي/">شركة رلى لاستصلاح الأراضي</a></div>
-    <div class="card"><a href="شركة مزارع الوادي/">شركة مزارع الوادي</a></div>
-    <div class="card"><a href="معامل هاي تك/">معامل هاي تك</a></div>
-
-  </div>
-
-  <script>
-    // تفعيل الوضع الليلي من LocalStorage
-    if (localStorage.getItem("darkMode") === "enabled") {
-      document.body.classList.add("dark");
-      document.getElementById("darkBtn").classList.add("dark-mode-active");
-      document.getElementById("darkBtn").innerText = "☀️ الوضع النهاري";
-    }
-
-    function toggleDarkMode() {
-      let body = document.body;
-      let btn = document.getElementById("darkBtn");
-
-      body.classList.toggle("dark");
-
-      if (body.classList.contains("dark")) {
-        localStorage.setItem("darkMode", "enabled");
-        btn.classList.add("dark-mode-active");
-        btn.innerText = "☀️ الوضع النهاري";
-      } else {
-        localStorage.setItem("darkMode", "disabled");
-        btn.classList.remove("dark-mode-active");
-        btn.innerText = "🌙 الوضع الليلي";
-      }
-    }
-  </script>
+  <ul>
+    <li><a href="شركة دواجن الوادي/">شركة دواجن الوادي</a></li>
+    <li><a href="العصرية لإدارة المشروعات/">العصرية لإدارة المشروعات</a></li>
+    <li><a href="العصرية لتجارة البذور/">العصرية لتجارة البذور</a></li>
+    <li><a href="المني لاستزراع الصحراء/">المني لاستزراع الصحراء</a></li>
+    <li><a href="الوادي لإنتاج اعلاف الماشية/">الوادي لإنتاج اعلاف الماشية</a></li>
+    <li><a href="الوادي لتصنيع الاعلاف/">الوادي لتصنيع الاعلاف</a></li>
+    <li><a href="الوادي لصناعات التبريد/">الوادي لصناعات التبريد</a></li>
+    <li><a href="الوادي للصناعات الغذائية/">الوادي للصناعات الغذائية</a></li>
+    <li><a href="الوادي لتأصيل الدواجن/">الوادي لتأصيل الدواجن</a></li>
+    <li><a href="الوادي للصناعات الزراعية/">الوادي للصناعات الزراعية</a></li>
+    <li><a href="الوادي امات الدواجن/">الوادي امات الدواجن</a></li>
+    <li><a href="شركة رلى لاستصلاح الأراضي/">شركة رلى لاستصلاح الأراضي</a></li>
+    <li><a href="شركة مزارع الوادي/">شركة مزارع الوادي</a></li>
+    <li><a href="معامل هاي تك/">معامل هاي تك</a></li>
+  </ul>
 
 </body>
 </html>
